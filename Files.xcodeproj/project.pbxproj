@@ -1,0 +1,741 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B25691182854A65400201527 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691172854A65400201527 /* AppDelegate.swift */; };
+		B256911A2854A65400201527 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691192854A65400201527 /* SceneDelegate.swift */; };
+		B25691212854A65500201527 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B25691202854A65500201527 /* Assets.xcassets */; };
+		B25691242854A65500201527 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25691222854A65500201527 /* LaunchScreen.storyboard */; };
+		B25691322854A7A700201527 /* FilesystemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691312854A7A700201527 /* FilesystemListViewController.swift */; };
+		B25691412854E01800201527 /* FilesystemItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691402854E01800201527 /* FilesystemItem.swift */; };
+		B25691432854E0A300201527 /* FilesystemItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691422854E0A300201527 /* FilesystemItemType.swift */; };
+		B256914B2854E3DD00201527 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256914A2854E3DD00201527 /* Collection+Extensions.swift */; };
+		B25691522854EA0E00201527 /* FilesystemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691512854EA0E00201527 /* FilesystemListView.swift */; };
+		B25691552855157100201527 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691542855157100201527 /* ColumnFlowLayout.swift */; };
+		B2569158285518B800201527 /* FilesystemListItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2569157285518B800201527 /* FilesystemListItemCollectionViewCell.swift */; };
+		B256915A2855272F00201527 /* GridFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691592855272F00201527 /* GridFlowLayout.swift */; };
+		B256915C285745E100201527 /* FilesystemListItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256915B285745E100201527 /* FilesystemListItemContentView.swift */; };
+		B256915E28576F9100201527 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256915D28576F9100201527 /* String+Extensions.swift */; };
+		B25691622857778B00201527 /* FilesystemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691612857778B00201527 /* FilesystemListViewModel.swift */; };
+		B25691642857C7CF00201527 /* FilesystemListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691632857C7CF00201527 /* FilesystemListItemViewModel.swift */; };
+		B25691662857D03000201527 /* FilesystemListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691652857D03000201527 /* FilesystemListViewDelegate.swift */; };
+		B256916A28584E5A00201527 /* FilesystemCardItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256916928584E5A00201527 /* FilesystemCardItemCollectionViewCell.swift */; };
+		B256916C28584E8700201527 /* FilesystemCardItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256916B28584E8700201527 /* FilesystemCardItemContentView.swift */; };
+		B2569170285900BB00201527 /* FilesystemListViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256916F285900BB00201527 /* FilesystemListViewDataSource.swift */; };
+		B25691722859032700201527 /* FilesystemListViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691712859032700201527 /* FilesystemListViewControllerDelegate.swift */; };
+		B2569175285906A600201527 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2569174285906A600201527 /* Coordinator.swift */; };
+		B25691792859093800201527 /* GetFilesystemItemsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691782859093800201527 /* GetFilesystemItemsUseCase.swift */; };
+		B256917C285909AD00201527 /* FilesystemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256917B285909AD00201527 /* FilesystemRepository.swift */; };
+		B256917F28590A4900201527 /* DefaultGetFilesystemItemsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256917E28590A4900201527 /* DefaultGetFilesystemItemsUseCase.swift */; };
+		B256918128590AD500201527 /* DefaultFilesystemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256918028590AD500201527 /* DefaultFilesystemRepository.swift */; };
+		B256918328590B2400201527 /* FilesystemNetworkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256918228590B2400201527 /* FilesystemNetworkDataSource.swift */; };
+		B256918528590B6E00201527 /* DefaultFilesystemNetworkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256918428590B6E00201527 /* DefaultFilesystemNetworkDataSource.swift */; };
+		B2569187285911FA00201527 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2569186285911FA00201527 /* Container.swift */; };
+		B25691892859211000201527 /* FakeFilesystemNetworkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691882859211000201527 /* FakeFilesystemNetworkDataSource.swift */; };
+		B256918B2859A6BA00201527 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256918A2859A6BA00201527 /* AppAppearance.swift */; };
+		B256918E2859AB9A00201527 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256918D2859AB9A00201527 /* LoadingView.swift */; };
+		B25691902859AD7E00201527 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256918F2859AD7E00201527 /* EmptyStateView.swift */; };
+		B25691942859C8D100201527 /* GSheetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691932859C8D100201527 /* GSheetsService.swift */; };
+		B25691982859C97800201527 /* GSheetResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691972859C97800201527 /* GSheetResponseModel.swift */; };
+		B256919C285A1CEC00201527 /* GSheetsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256919B285A1CEC00201527 /* GSheetsError.swift */; };
+		B256919E285A24C700201527 /* GSheetsServiceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256919D285A24C700201527 /* GSheetsServiceConfiguration.swift */; };
+		B25691C8285B964200201527 /* SaveFilesystemItemUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691C7285B964200201527 /* SaveFilesystemItemUseCase.swift */; };
+		B25691CA285B971700201527 /* DefaultSaveFilesystemItemUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691C9285B971700201527 /* DefaultSaveFilesystemItemUseCase.swift */; };
+		B25691CC285B977400201527 /* DeleteFilesystemItemUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691CB285B977400201527 /* DeleteFilesystemItemUseCase.swift */; };
+		B25691CF285BACD700201527 /* DefaultDeleteFilesystemItemUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691CE285BACD700201527 /* DefaultDeleteFilesystemItemUseCase.swift */; };
+		B25691D1285C8B9400201527 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691D0285C8B9400201527 /* Configuration.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B25691142854A65400201527 /* Files.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Files.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B25691172854A65400201527 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B25691192854A65400201527 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B25691202854A65500201527 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B25691232854A65500201527 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B25691252854A65500201527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B25691312854A7A700201527 /* FilesystemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemListViewController.swift; sourceTree = "<group>"; };
+		B25691402854E01800201527 /* FilesystemItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemItem.swift; sourceTree = "<group>"; };
+		B25691422854E0A300201527 /* FilesystemItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemItemType.swift; sourceTree = "<group>"; };
+		B256914A2854E3DD00201527 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
+		B25691512854EA0E00201527 /* FilesystemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemListView.swift; sourceTree = "<group>"; };
+		B25691542855157100201527 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
+		B2569157285518B800201527 /* FilesystemListItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemListItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		B25691592855272F00201527 /* GridFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridFlowLayout.swift; sourceTree = "<group>"; };
+		B256915B285745E100201527 /* FilesystemListItemContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemListItemContentView.swift; sourceTree = "<group>"; };
+		B256915D28576F9100201527 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		B25691612857778B00201527 /* FilesystemListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemListViewModel.swift; sourceTree = "<group>"; };
+		B25691632857C7CF00201527 /* FilesystemListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemListItemViewModel.swift; sourceTree = "<group>"; };
+		B25691652857D03000201527 /* FilesystemListViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemListViewDelegate.swift; sourceTree = "<group>"; };
+		B256916928584E5A00201527 /* FilesystemCardItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemCardItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		B256916B28584E8700201527 /* FilesystemCardItemContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemCardItemContentView.swift; sourceTree = "<group>"; };
+		B256916F285900BB00201527 /* FilesystemListViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemListViewDataSource.swift; sourceTree = "<group>"; };
+		B25691712859032700201527 /* FilesystemListViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemListViewControllerDelegate.swift; sourceTree = "<group>"; };
+		B2569174285906A600201527 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B25691782859093800201527 /* GetFilesystemItemsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFilesystemItemsUseCase.swift; sourceTree = "<group>"; };
+		B256917B285909AD00201527 /* FilesystemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemRepository.swift; sourceTree = "<group>"; };
+		B256917E28590A4900201527 /* DefaultGetFilesystemItemsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultGetFilesystemItemsUseCase.swift; sourceTree = "<group>"; };
+		B256918028590AD500201527 /* DefaultFilesystemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFilesystemRepository.swift; sourceTree = "<group>"; };
+		B256918228590B2400201527 /* FilesystemNetworkDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemNetworkDataSource.swift; sourceTree = "<group>"; };
+		B256918428590B6E00201527 /* DefaultFilesystemNetworkDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFilesystemNetworkDataSource.swift; sourceTree = "<group>"; };
+		B2569186285911FA00201527 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		B25691882859211000201527 /* FakeFilesystemNetworkDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeFilesystemNetworkDataSource.swift; sourceTree = "<group>"; };
+		B256918A2859A6BA00201527 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
+		B256918D2859AB9A00201527 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		B256918F2859AD7E00201527 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		B25691932859C8D100201527 /* GSheetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSheetsService.swift; sourceTree = "<group>"; };
+		B25691972859C97800201527 /* GSheetResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSheetResponseModel.swift; sourceTree = "<group>"; };
+		B256919B285A1CEC00201527 /* GSheetsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSheetsError.swift; sourceTree = "<group>"; };
+		B256919D285A24C700201527 /* GSheetsServiceConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSheetsServiceConfiguration.swift; sourceTree = "<group>"; };
+		B25691C7285B964200201527 /* SaveFilesystemItemUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFilesystemItemUseCase.swift; sourceTree = "<group>"; };
+		B25691C9285B971700201527 /* DefaultSaveFilesystemItemUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSaveFilesystemItemUseCase.swift; sourceTree = "<group>"; };
+		B25691CB285B977400201527 /* DeleteFilesystemItemUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFilesystemItemUseCase.swift; sourceTree = "<group>"; };
+		B25691CE285BACD700201527 /* DefaultDeleteFilesystemItemUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDeleteFilesystemItemUseCase.swift; sourceTree = "<group>"; };
+		B25691D0285C8B9400201527 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		B25691D3285C8BF900201527 /* Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Configuration.xcconfig; sourceTree = "<group>"; };
+		B25691D4285C8E1D00201527 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B25691112854A65400201527 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B256910B2854A65400201527 = {
+			isa = PBXGroup;
+			children = (
+				B25691D4285C8E1D00201527 /* README.md */,
+				B25691162854A65400201527 /* Files */,
+				B25691152854A65400201527 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B25691152854A65400201527 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B25691142854A65400201527 /* Files.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B25691162854A65400201527 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				B256912C2854A69300201527 /* Application */,
+				B25691482854E3BF00201527 /* Common */,
+				B25691D2285C8BD600201527 /* Configuration */,
+				B25691362854DE3F00201527 /* Data */,
+				B256913E2854DFDC00201527 /* Domain */,
+				B256912D2854A69B00201527 /* Presentation */,
+				B256912B2854A68100201527 /* Resources */,
+				B25691922859C8BA00201527 /* Services */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		B256912B2854A68100201527 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B25691202854A65500201527 /* Assets.xcassets */,
+				B25691222854A65500201527 /* LaunchScreen.storyboard */,
+				B25691252854A65500201527 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B256912C2854A69300201527 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B256918A2859A6BA00201527 /* AppAppearance.swift */,
+				B25691172854A65400201527 /* AppDelegate.swift */,
+				B25691D0285C8B9400201527 /* Configuration.swift */,
+				B2569186285911FA00201527 /* Container.swift */,
+				B2569174285906A600201527 /* Coordinator.swift */,
+				B25691192854A65400201527 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		B256912D2854A69B00201527 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				B256915F28576FC900201527 /* Common */,
+				B2569153285514C200201527 /* Layouts */,
+				B25691502854E8B200201527 /* Screens */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		B25691302854A79100201527 /* FilesystemList */ = {
+			isa = PBXGroup;
+			children = (
+				B25691382854DE5100201527 /* ViewModels */,
+				B25691372854DE4B00201527 /* Views */,
+			);
+			path = FilesystemList;
+			sourceTree = "<group>";
+		};
+		B25691362854DE3F00201527 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B25691762859090F00201527 /* Repositories */,
+				B25691392854DE8100201527 /* Sources */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B25691372854DE4B00201527 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B25691562855186000201527 /* Cells */,
+				B25691512854EA0E00201527 /* FilesystemListView.swift */,
+				B25691312854A7A700201527 /* FilesystemListViewController.swift */,
+				B25691712859032700201527 /* FilesystemListViewControllerDelegate.swift */,
+				B256916F285900BB00201527 /* FilesystemListViewDataSource.swift */,
+				B25691652857D03000201527 /* FilesystemListViewDelegate.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B25691382854DE5100201527 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B25691612857778B00201527 /* FilesystemListViewModel.swift */,
+				B25691632857C7CF00201527 /* FilesystemListItemViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B25691392854DE8100201527 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B256913A2854DE9A00201527 /* Network */,
+				B256918228590B2400201527 /* FilesystemNetworkDataSource.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B256913A2854DE9A00201527 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B256918428590B6E00201527 /* DefaultFilesystemNetworkDataSource.swift */,
+				B25691882859211000201527 /* FakeFilesystemNetworkDataSource.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B256913E2854DFDC00201527 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B256917A2859099800201527 /* UseCases */,
+				B25691772859091800201527 /* Repositories */,
+				B256913F2854DFE700201527 /* Models */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B256913F2854DFE700201527 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B25691402854E01800201527 /* FilesystemItem.swift */,
+				B25691422854E0A300201527 /* FilesystemItemType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B25691482854E3BF00201527 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B25691492854E3C900201527 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B25691492854E3C900201527 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B256914A2854E3DD00201527 /* Collection+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B25691502854E8B200201527 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B25691302854A79100201527 /* FilesystemList */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B2569153285514C200201527 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				B25691542855157100201527 /* ColumnFlowLayout.swift */,
+				B25691592855272F00201527 /* GridFlowLayout.swift */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		B25691562855186000201527 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B256916828584DF500201527 /* CardItem */,
+				B256916728584DE000201527 /* ListItem */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B256915F28576FC900201527 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B256916028576FD000201527 /* Extensions */,
+				B256918C2859AB8400201527 /* Views */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B256916028576FD000201527 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B256915D28576F9100201527 /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B256916728584DE000201527 /* ListItem */ = {
+			isa = PBXGroup;
+			children = (
+				B2569157285518B800201527 /* FilesystemListItemCollectionViewCell.swift */,
+				B256915B285745E100201527 /* FilesystemListItemContentView.swift */,
+			);
+			path = ListItem;
+			sourceTree = "<group>";
+		};
+		B256916828584DF500201527 /* CardItem */ = {
+			isa = PBXGroup;
+			children = (
+				B256916928584E5A00201527 /* FilesystemCardItemCollectionViewCell.swift */,
+				B256916B28584E8700201527 /* FilesystemCardItemContentView.swift */,
+			);
+			path = CardItem;
+			sourceTree = "<group>";
+		};
+		B25691762859090F00201527 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				B256918028590AD500201527 /* DefaultFilesystemRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		B25691772859091800201527 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				B256917B285909AD00201527 /* FilesystemRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		B256917A2859099800201527 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				B25691C6285B961900201527 /* Default */,
+				B25691782859093800201527 /* GetFilesystemItemsUseCase.swift */,
+				B25691C7285B964200201527 /* SaveFilesystemItemUseCase.swift */,
+				B25691CB285B977400201527 /* DeleteFilesystemItemUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		B256918C2859AB8400201527 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B256918D2859AB9A00201527 /* LoadingView.swift */,
+				B256918F2859AD7E00201527 /* EmptyStateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B25691922859C8BA00201527 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B25691952859C91700201527 /* GoogleSheets */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B25691952859C91700201527 /* GoogleSheets */ = {
+			isa = PBXGroup;
+			children = (
+				B25691962859C92300201527 /* Models */,
+				B256919B285A1CEC00201527 /* GSheetsError.swift */,
+				B256919D285A24C700201527 /* GSheetsServiceConfiguration.swift */,
+				B25691932859C8D100201527 /* GSheetsService.swift */,
+			);
+			path = GoogleSheets;
+			sourceTree = "<group>";
+		};
+		B25691962859C92300201527 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B25691972859C97800201527 /* GSheetResponseModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B25691C6285B961900201527 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				B256917E28590A4900201527 /* DefaultGetFilesystemItemsUseCase.swift */,
+				B25691C9285B971700201527 /* DefaultSaveFilesystemItemUseCase.swift */,
+				B25691CE285BACD700201527 /* DefaultDeleteFilesystemItemUseCase.swift */,
+			);
+			path = Default;
+			sourceTree = "<group>";
+		};
+		B25691D2285C8BD600201527 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				B25691D3285C8BF900201527 /* Configuration.xcconfig */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B25691132854A65400201527 /* Files */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B25691282854A65500201527 /* Build configuration list for PBXNativeTarget "Files" */;
+			buildPhases = (
+				B25691102854A65400201527 /* Sources */,
+				B25691112854A65400201527 /* Frameworks */,
+				B25691122854A65400201527 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Files;
+			productName = Files;
+			productReference = B25691142854A65400201527 /* Files.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B256910C2854A65400201527 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					B25691132854A65400201527 = {
+						CreatedOnToolsVersion = 13.4;
+					};
+				};
+			};
+			buildConfigurationList = B256910F2854A65400201527 /* Build configuration list for PBXProject "Files" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B256910B2854A65400201527;
+			productRefGroup = B25691152854A65400201527 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B25691132854A65400201527 /* Files */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B25691122854A65400201527 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B25691242854A65500201527 /* LaunchScreen.storyboard in Resources */,
+				B25691212854A65500201527 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B25691102854A65400201527 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B25691412854E01800201527 /* FilesystemItem.swift in Sources */,
+				B256918328590B2400201527 /* FilesystemNetworkDataSource.swift in Sources */,
+				B2569158285518B800201527 /* FilesystemListItemCollectionViewCell.swift in Sources */,
+				B25691C8285B964200201527 /* SaveFilesystemItemUseCase.swift in Sources */,
+				B256917C285909AD00201527 /* FilesystemRepository.swift in Sources */,
+				B25691182854A65400201527 /* AppDelegate.swift in Sources */,
+				B25691D1285C8B9400201527 /* Configuration.swift in Sources */,
+				B256918E2859AB9A00201527 /* LoadingView.swift in Sources */,
+				B25691892859211000201527 /* FakeFilesystemNetworkDataSource.swift in Sources */,
+				B25691662857D03000201527 /* FilesystemListViewDelegate.swift in Sources */,
+				B256916C28584E8700201527 /* FilesystemCardItemContentView.swift in Sources */,
+				B256915A2855272F00201527 /* GridFlowLayout.swift in Sources */,
+				B2569175285906A600201527 /* Coordinator.swift in Sources */,
+				B25691792859093800201527 /* GetFilesystemItemsUseCase.swift in Sources */,
+				B256911A2854A65400201527 /* SceneDelegate.swift in Sources */,
+				B25691522854EA0E00201527 /* FilesystemListView.swift in Sources */,
+				B25691622857778B00201527 /* FilesystemListViewModel.swift in Sources */,
+				B256918B2859A6BA00201527 /* AppAppearance.swift in Sources */,
+				B25691642857C7CF00201527 /* FilesystemListItemViewModel.swift in Sources */,
+				B256918128590AD500201527 /* DefaultFilesystemRepository.swift in Sources */,
+				B256915C285745E100201527 /* FilesystemListItemContentView.swift in Sources */,
+				B256917F28590A4900201527 /* DefaultGetFilesystemItemsUseCase.swift in Sources */,
+				B25691902859AD7E00201527 /* EmptyStateView.swift in Sources */,
+				B25691942859C8D100201527 /* GSheetsService.swift in Sources */,
+				B256919E285A24C700201527 /* GSheetsServiceConfiguration.swift in Sources */,
+				B25691CC285B977400201527 /* DeleteFilesystemItemUseCase.swift in Sources */,
+				B2569187285911FA00201527 /* Container.swift in Sources */,
+				B256915E28576F9100201527 /* String+Extensions.swift in Sources */,
+				B25691CF285BACD700201527 /* DefaultDeleteFilesystemItemUseCase.swift in Sources */,
+				B25691982859C97800201527 /* GSheetResponseModel.swift in Sources */,
+				B256914B2854E3DD00201527 /* Collection+Extensions.swift in Sources */,
+				B25691552855157100201527 /* ColumnFlowLayout.swift in Sources */,
+				B2569170285900BB00201527 /* FilesystemListViewDataSource.swift in Sources */,
+				B25691322854A7A700201527 /* FilesystemListViewController.swift in Sources */,
+				B25691CA285B971700201527 /* DefaultSaveFilesystemItemUseCase.swift in Sources */,
+				B256916A28584E5A00201527 /* FilesystemCardItemCollectionViewCell.swift in Sources */,
+				B256919C285A1CEC00201527 /* GSheetsError.swift in Sources */,
+				B25691432854E0A300201527 /* FilesystemItemType.swift in Sources */,
+				B256918528590B6E00201527 /* DefaultFilesystemNetworkDataSource.swift in Sources */,
+				B25691722859032700201527 /* FilesystemListViewControllerDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B25691222854A65500201527 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B25691232854A65500201527 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B25691262854A65500201527 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B25691D3285C8BF900201527 /* Configuration.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B25691272854A65500201527 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B25691D3285C8BF900201527 /* Configuration.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B25691292854A65500201527 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2SKP9LNS67;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Files/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Files;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.files;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		B256912A2854A65500201527 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2SKP9LNS67;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Files/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Files;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.files;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B256910F2854A65400201527 /* Build configuration list for PBXProject "Files" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B25691262854A65500201527 /* Debug */,
+				B25691272854A65500201527 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B25691282854A65500201527 /* Build configuration list for PBXNativeTarget "Files" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B25691292854A65500201527 /* Debug */,
+				B256912A2854A65500201527 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B256910C2854A65400201527 /* Project object */;
+}

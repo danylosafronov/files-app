@@ -1,0 +1,12 @@
+//
+//  Configuration.xcconfig
+//  Files
+//
+//  Created by Danylo Safronov on 17.06.2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_SHEET_ID =
+API_KEY = 
