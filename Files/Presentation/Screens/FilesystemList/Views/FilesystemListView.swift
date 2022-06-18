@@ -178,8 +178,8 @@ final class FilesystemListView: UIView, UICollectionViewDataSource, UICollection
         self.mode = mode
     }
     
-    func insertItems(at indexes: [IndexPath]) {
-        collectionView.insertItems(at: indexes)
+    func reload() {
+        collectionView.reloadData()
     }
     
     func showLoadingState() {

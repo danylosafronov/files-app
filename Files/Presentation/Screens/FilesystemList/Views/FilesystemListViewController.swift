@@ -183,7 +183,7 @@ final class FilesystemListViewController: UIViewController, FilesystemListViewDe
         }
         
         defaultView.hideEmptyState()
-        defaultView.insertItems(at: viewModel.indexes(forItems: items))
+        defaultView.reload()
     }
     
     private func didChangeViewModelParent(_ parent: FilesystemItem?) {
