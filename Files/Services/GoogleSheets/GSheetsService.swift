@@ -10,14 +10,15 @@ import Foundation
 struct GSheetsService {
     let configuration: GSheetServiceConfiguration
     
-    func fetch(sheetId: String) async throws -> GSheetResponseModel {
+    func fetch(fromSpreadsheet spreadsheetId: String) async throws -> GSheetResponseModel {
         guard let authorizationToken = configuration.authorizationToken else {
             throw GSheetErrors.unauthorized
         }
         
-        let url = try makeSheetUrl("values", forSheet: sheetId, range: ("1", "1000"))
+        let url = try makeSheetUrl("values", forSpreadsheet: spreadsheetId, range: ("A1", "Z1000"))
         var request = URLRequest(url: url)
         request.addValue("Bearer \(authorizationToken)", forHTTPHeaderField: "Authorization")
+        print(authorizationToken)
         
         let (responseData, _) = try await execute(with: request)
         let data = try JSONDecoder().decode(GSheetResponseModel.self, from: responseData)
@@ -25,31 +26,28 @@ struct GSheetsService {
         return data
     }
     
-    func insert(sheetId: String, rows: [[String]]) async throws {
+    func insert(_ row: [String], at index: Int, toSpreadsheet spreadsheetId: String) async throws {
         guard let authorizationToken = configuration.authorizationToken else {
             throw GSheetErrors.unauthorized
         }
         
-        let url = try makeSheetUrl("values", forSheet: sheetId, range: ("1", "1000"), action: "append", parameters: ["valueInputOption": "RAW"])
+        let url = try makeSheetUrl("values", forSpreadsheet: spreadsheetId, range: ("A\(index)", "Z\(index)"), action: "append", parameters: ["valueInputOption": "RAW"])
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("Bearer \(authorizationToken)", forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        if !rows.isEmpty {
-            request.httpBody = try JSONSerialization.data(withJSONObject: ["values": rows])
-        }
+        request.httpBody = try JSONSerialization.data(withJSONObject: ["values": [row]])
         
         let (_, _) = try await execute(with: request)
     }
     
-    func delete(sheetId: String, index: Int) async throws {
+    func delete(at index: Int, fromSpreadsheet spreadsheetId: String) async throws {
         guard let authorizationToken = configuration.authorizationToken else {
             throw GSheetErrors.unauthorized
         }
         
-        let url = try makeSheetUrl("values", forSheet: sheetId, range: ("\(index)", "\(index)"), action: "clear")
+        let url = try makeSheetUrl("values", forSpreadsheet: spreadsheetId, range: ("A\(index)", "Z\(index)"), action: "clear")
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("Bearer \(authorizationToken)", forHTTPHeaderField: "Authorization")
@@ -81,13 +79,13 @@ struct GSheetsService {
         URLSession.shared.dataTask(with: request, completionHandler: completionHandler)
     }
     
-    private func makeSheetUrl(_ resource: String, forSheet sheetId: String, range: (String, String), action: String? = nil, parameters: [String: String]? = nil) throws -> URL {
+    private func makeSheetUrl(_ resource: String, forSpreadsheet spreadsheetId: String, range: (String, String), action: String? = nil, parameters: [String: String]? = nil) throws -> URL {
         var range = "\(range.0):\(range.1)"
         if let action = action {
             range += ":\(action)"
         }
         
-        let path: [String] = [configuration.apiVersion, configuration.apiService, sheetId, resource, range]
+        let path: [String] = [configuration.apiVersion, configuration.apiService, spreadsheetId, resource, range]
         let urlComponents = try makeSheetUrlComponents(string: configuration.baseUrl, path: path, parameters: parameters)
         
         guard let url = urlComponents.url else {
