@@ -9,10 +9,10 @@ import Foundation
 
 protocol FilesystemListViewControllerDelegate: AnyObject {
     func didSelectItem(_ item: FilesystemItem)
-    func didInitializeSignOut()
+    func didTapSignOut()
 }
 
 extension FilesystemListViewControllerDelegate {
     func didSelectItem(_ item: FilesystemItem) { }
-    func didInitializeSignOut() { }
+    func didTapSignOut() { }
 }

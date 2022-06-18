@@ -91,13 +91,13 @@ final class AuthorizationView: UIView {
     
     private func configureSignInWithGoogleButton() {
         contentStackView.addArrangedSubview(signInWithGoogleButton)
-        signInWithGoogleButton.addTarget(self, action: #selector(didTapSignInWithGoogleButton), for: .touchUpInside)
+        signInWithGoogleButton.addTarget(self, action: #selector(didTapSignInWithGoogle), for: .touchUpInside)
     }
     
     // MARK: - Events
     
     @objc
-    private func didTapSignInWithGoogleButton() {
-        delegate?.didTapSignInWithGoogleButton()
+    private func didTapSignInWithGoogle() {
+        delegate?.didTapSignInWithGoogle()
     }
 }

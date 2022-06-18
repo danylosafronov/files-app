@@ -8,9 +8,9 @@
 import Foundation
 
 protocol AuthorizationViewDelegate: AnyObject {
-    func didTapSignInWithGoogleButton()
+    func didTapSignInWithGoogle()
 }
 
 extension AuthorizationViewDelegate {
-    func didTapSignInWithGoogleButton() { }
+    func didTapSignInWithGoogle() { }
 }

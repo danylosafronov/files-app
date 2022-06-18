@@ -28,7 +28,7 @@ final class AuthorizationViewController: UIViewController, AuthorizationViewDele
     
     // MARK: - AuthorizationViewDelegate
     
-    func didTapSignInWithGoogleButton() {
-        delegate?.didInitializeSignInWithGoogle()
+    func didTapSignInWithGoogle() {
+        delegate?.didTapSignInWithGoogle()
     }
 }

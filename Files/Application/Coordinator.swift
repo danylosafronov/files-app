@@ -60,7 +60,7 @@ final class Coordinator: AuthorizationViewControllerDelegate, FilesystemListView
     
     // MARK: - AuthorizationViewControllerDelegate
     
-    func didInitializeSignInWithGoogle() {
+    func didTapSignInWithGoogle() {
         delegate?.didInitializeSignInWithGoogle()
     }
     
@@ -73,7 +73,7 @@ final class Coordinator: AuthorizationViewControllerDelegate, FilesystemListView
         }
     }
     
-    func didInitializeSignOut() {
+    func didTapSignOut() {
         delegate?.didInitializeSignOut()
     }
 }

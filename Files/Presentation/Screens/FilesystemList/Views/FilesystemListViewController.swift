@@ -196,7 +196,7 @@ final class FilesystemListViewController: UIViewController, FilesystemListViewDe
     }
     
     private func didTapAlertSignOutItem() {
-        delegate?.didInitializeSignOut()
+        delegate?.didTapSignOut()
     }
     
     private func didTapAlertCreateItem(_ alert: UIAlertController, ofType type: AlertType, withName name: String) {
