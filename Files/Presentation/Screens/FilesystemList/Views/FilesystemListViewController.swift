@@ -18,10 +18,12 @@ final class FilesystemListViewController: UIViewController, FilesystemListViewDe
     private enum AlertType {
         case createFolder
         case createFile
+        case signOut
     }
     
     private lazy var defaultView = FilesystemListView()
     
+    private var isWasAppear: Bool = false
     private var viewModel: FilesystemListViewModel
     private var cancellable = Set<AnyCancellable>()
     
@@ -56,17 +58,15 @@ final class FilesystemListViewController: UIViewController, FilesystemListViewDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if isMovingToParent {
+        if !isWasAppear {
+            isWasAppear = true
             viewModel.load()
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        if isMovingFromParent {
-            viewModel.stop()
-        }
+        viewModel.stop()
     }
     
     // MARK: - Configurations
@@ -86,6 +86,7 @@ final class FilesystemListViewController: UIViewController, FilesystemListViewDe
     
     private func configureNavigationBarItems() {
         navigationItem.rightBarButtonItems = [
+            makeSignOutBarButtonItem(),
             makeChangeViewModeBarButtonItem(mode: defaultView.mode),
 //            makeCreateFolderBarButtonItem(),
 //            makeCreateFileBarButtonItem(),
@@ -145,6 +146,11 @@ final class FilesystemListViewController: UIViewController, FilesystemListViewDe
     // MARK: - Events
     
     @objc
+    private func didTapSignOutBarButtonItem() {
+        present(makeAlert(ofType: .signOut), animated: true)
+    }
+    
+    @objc
     private func didTapModeBarButtonItem() {
         defaultView.setDisplayMode(defaultView.mode == .column ? .grid : .column)
     }
@@ -189,6 +195,10 @@ final class FilesystemListViewController: UIViewController, FilesystemListViewDe
         state ? defaultView.showLoadingState() : defaultView.hideLoadingState()
     }
     
+    private func didTapAlertSignOutItem() {
+        delegate?.didInitializeSignOut()
+    }
+    
     private func didTapAlertCreateItem(_ alert: UIAlertController, ofType type: AlertType, withName name: String) {
         // todo
     }
@@ -210,7 +220,14 @@ final class FilesystemListViewController: UIViewController, FilesystemListViewDe
         viewModel.item(at: index)
     }
     
-    // MARK: Logic
+    // MARK: - Logic
+    
+    private func makeSignOutBarButtonItem() -> UIBarButtonItem {
+        let item = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), style: .plain, target: self, action: #selector(didTapSignOutBarButtonItem))
+        item.tag = BarButtonItemTag.createFile.rawValue
+        
+        return item
+    }
     
     private func makeChangeViewModeBarButtonItem(mode: FilesystemListView.DisplayMode) -> UIBarButtonItem {
         let systemName = resolveModeBarButtonItemIconSystemName(byMode: mode)
@@ -233,7 +250,7 @@ final class FilesystemListViewController: UIViewController, FilesystemListViewDe
         
         return item
     }
-    
+
     private func resolveModeBarButtonItemIconSystemName(byMode mode: FilesystemListView.DisplayMode) -> String {
         mode == .column ? "rectangle.grid.3x2.fill" : "rectangle.grid.1x2.fill"
     }
@@ -243,7 +260,7 @@ final class FilesystemListViewController: UIViewController, FilesystemListViewDe
         let alertMessage = resolveAlertMessage(byType: type)
         
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-        alert.addAction(.init(title: "Cancel", style: .destructive))
+        alert.addAction(.init(title: "Cancel", style: .default))
         
         configureAlert(alert, byType: type)
         return alert
@@ -253,6 +270,7 @@ final class FilesystemListViewController: UIViewController, FilesystemListViewDe
         switch type {
         case .createFolder: return "Create a new folder"
         case .createFile: return "Create a new file"
+        case .signOut: return "Sign Out"
         }
     }
     
@@ -260,6 +278,7 @@ final class FilesystemListViewController: UIViewController, FilesystemListViewDe
         switch type {
         case .createFolder: return "Enter a folder name"
         case .createFile: return "Enter a file name"
+        case .signOut: return "Are you sure you want to sign out?"
         }
     }
     
@@ -278,6 +297,11 @@ final class FilesystemListViewController: UIViewController, FilesystemListViewDe
                 }
                 
                 self.didTapAlertCreateItem(alert, ofType: type, withName: text)
+            })
+            
+        case .signOut:
+            alert.addAction(.init(title: "Yes", style: .destructive) { [weak self] _ in
+                self?.didTapAlertSignOutItem()
             })
         }
     }

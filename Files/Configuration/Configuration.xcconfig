@@ -9,4 +9,5 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 API_SHEET_ID =
-API_KEY = 
+API_CLIENT_ID =
+API_SCHEME =

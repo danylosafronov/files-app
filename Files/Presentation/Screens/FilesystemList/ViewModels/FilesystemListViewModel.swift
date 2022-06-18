@@ -19,7 +19,6 @@ final class FilesystemListViewModel {
     private var loadItemsTask: Task<Void, Error>? {
         willSet { cancelTask(loadItemsTask) }
     }
-    
     private var createItemTask: Task<Void, Error>? {
         willSet { cancelTask(createItemTask) }
     }

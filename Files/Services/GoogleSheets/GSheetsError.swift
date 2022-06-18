@@ -11,4 +11,5 @@ enum GSheetErrors: Error {
     case malformedUrl
     case invalidUrl
     case badServerResponse
+    case unauthorized
 }

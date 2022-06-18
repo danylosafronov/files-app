@@ -9,10 +9,15 @@ import Foundation
 
 struct GSheetsService {
     let configuration: GSheetServiceConfiguration
-
+    
     func fetch(sheetId: String) async throws -> GSheetResponseModel {
-        let url = try makeSheetValuesUrl(forSheet: sheetId, withApiKey: configuration.apiKey)
-        let request = URLRequest(url: url)
+        guard let authorizationToken = configuration.authorizationToken else {
+            throw GSheetErrors.unauthorized
+        }
+        
+        let url = try makeSheetValuesUrl(forSheet: sheetId)
+        var request = URLRequest(url: url)
+        request.addValue("Bearer \(authorizationToken)", forHTTPHeaderField: "Authorization")
         
         let (responseData, _) = try await execute(with: request)
         let data = try JSONDecoder().decode(GSheetResponseModel.self, from: responseData)
@@ -27,7 +32,7 @@ struct GSheetsService {
                     let error = error ?? GSheetErrors.badServerResponse
                     return continuation.resume(throwing: error)
                 }
-
+                
                 return continuation.resume(returning: (data, response))
             }
             
@@ -39,8 +44,8 @@ struct GSheetsService {
         URLSession.shared.dataTask(with: request, completionHandler: completionHandler)
     }
     
-    private func makeSheetValuesUrl(forSheet sheetId: String, withApiKey apiKey: String) throws -> URL {
-        let urlComponents = try makeSheetUrlComponents(string: "\(configuration.baseUrl)/\(sheetId)/values/1:1000", parameters: ["key": apiKey])
+    private func makeSheetValuesUrl(forSheet sheetId: String) throws -> URL {
+        let urlComponents = try makeSheetUrlComponents(string: "\(configuration.baseUrl)/\(sheetId)/values/1:1000")
         guard let url = urlComponents.url else {
             throw GSheetErrors.invalidUrl
         }

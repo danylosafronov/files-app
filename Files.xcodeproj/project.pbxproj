@@ -49,6 +49,13 @@
 		B25691CC285B977400201527 /* DeleteFilesystemItemUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691CB285B977400201527 /* DeleteFilesystemItemUseCase.swift */; };
 		B25691CF285BACD700201527 /* DefaultDeleteFilesystemItemUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691CE285BACD700201527 /* DefaultDeleteFilesystemItemUseCase.swift */; };
 		B25691D1285C8B9400201527 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691D0285C8B9400201527 /* Configuration.swift */; };
+		B25691D7285CABDA00201527 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B25691D6285CABDA00201527 /* GoogleSignIn */; };
+		B25691DB285CAF1100201527 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691DA285CAF1100201527 /* AuthorizationViewController.swift */; };
+		B25691DD285CAF2700201527 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691DC285CAF2700201527 /* AuthorizationView.swift */; };
+		B25691E0285CB45400201527 /* AuthorizationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691DF285CB45400201527 /* AuthorizationViewDelegate.swift */; };
+		B25691E2285CBD0000201527 /* AuthorizationViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691E1285CBD0000201527 /* AuthorizationViewControllerDelegate.swift */; };
+		B25691E6285CC9B600201527 /* AuthorizationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691E5285CC9B600201527 /* AuthorizationState.swift */; };
+		B25691E8285DDADB00201527 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691E7285DDADB00201527 /* CoordinatorDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +105,12 @@
 		B25691D0285C8B9400201527 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		B25691D3285C8BF900201527 /* Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Configuration.xcconfig; sourceTree = "<group>"; };
 		B25691D4285C8E1D00201527 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B25691DA285CAF1100201527 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		B25691DC285CAF2700201527 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
+		B25691DF285CB45400201527 /* AuthorizationViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewDelegate.swift; sourceTree = "<group>"; };
+		B25691E1285CBD0000201527 /* AuthorizationViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewControllerDelegate.swift; sourceTree = "<group>"; };
+		B25691E5285CC9B600201527 /* AuthorizationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationState.swift; sourceTree = "<group>"; };
+		B25691E7285DDADB00201527 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B25691D7285CABDA00201527 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +175,7 @@
 				B25691D0285C8B9400201527 /* Configuration.swift */,
 				B2569186285911FA00201527 /* Container.swift */,
 				B2569174285906A600201527 /* Coordinator.swift */,
+				B25691E7285DDADB00201527 /* CoordinatorDelegate.swift */,
 				B25691192854A65400201527 /* SceneDelegate.swift */,
 			);
 			path = Application;
@@ -247,8 +262,8 @@
 		B256913F2854DFE700201527 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B25691402854E01800201527 /* FilesystemItem.swift */,
-				B25691422854E0A300201527 /* FilesystemItemType.swift */,
+				B25691E4285CC97600201527 /* Authorization */,
+				B25691E3285CC96E00201527 /* Filesystem */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -272,6 +287,7 @@
 		B25691502854E8B200201527 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B25691D8285CAEC800201527 /* Authorization */,
 				B25691302854A79100201527 /* FilesystemList */,
 			);
 			path = Screens;
@@ -411,6 +427,42 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		B25691D8285CAEC800201527 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				B25691D9285CAEE600201527 /* View */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		B25691D9285CAEE600201527 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B25691DC285CAF2700201527 /* AuthorizationView.swift */,
+				B25691DA285CAF1100201527 /* AuthorizationViewController.swift */,
+				B25691E1285CBD0000201527 /* AuthorizationViewControllerDelegate.swift */,
+				B25691DF285CB45400201527 /* AuthorizationViewDelegate.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B25691E3285CC96E00201527 /* Filesystem */ = {
+			isa = PBXGroup;
+			children = (
+				B25691402854E01800201527 /* FilesystemItem.swift */,
+				B25691422854E0A300201527 /* FilesystemItemType.swift */,
+			);
+			path = Filesystem;
+			sourceTree = "<group>";
+		};
+		B25691E4285CC97600201527 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				B25691E5285CC9B600201527 /* AuthorizationState.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -427,6 +479,9 @@
 			dependencies = (
 			);
 			name = Files;
+			packageProductDependencies = (
+				B25691D6285CABDA00201527 /* GoogleSignIn */,
+			);
 			productName = Files;
 			productReference = B25691142854A65400201527 /* Files.app */;
 			productType = "com.apple.product-type.application";
@@ -455,6 +510,9 @@
 				Base,
 			);
 			mainGroup = B256910B2854A65400201527;
+			packageReferences = (
+				B25691D5285CABDA00201527 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
 			productRefGroup = B25691152854A65400201527 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -492,9 +550,11 @@
 				B25691892859211000201527 /* FakeFilesystemNetworkDataSource.swift in Sources */,
 				B25691662857D03000201527 /* FilesystemListViewDelegate.swift in Sources */,
 				B256916C28584E8700201527 /* FilesystemCardItemContentView.swift in Sources */,
+				B25691E0285CB45400201527 /* AuthorizationViewDelegate.swift in Sources */,
 				B256915A2855272F00201527 /* GridFlowLayout.swift in Sources */,
 				B2569175285906A600201527 /* Coordinator.swift in Sources */,
 				B25691792859093800201527 /* GetFilesystemItemsUseCase.swift in Sources */,
+				B25691E8285DDADB00201527 /* CoordinatorDelegate.swift in Sources */,
 				B256911A2854A65400201527 /* SceneDelegate.swift in Sources */,
 				B25691522854EA0E00201527 /* FilesystemListView.swift in Sources */,
 				B25691622857778B00201527 /* FilesystemListViewModel.swift in Sources */,
@@ -503,14 +563,18 @@
 				B256918128590AD500201527 /* DefaultFilesystemRepository.swift in Sources */,
 				B256915C285745E100201527 /* FilesystemListItemContentView.swift in Sources */,
 				B256917F28590A4900201527 /* DefaultGetFilesystemItemsUseCase.swift in Sources */,
+				B25691E6285CC9B600201527 /* AuthorizationState.swift in Sources */,
 				B25691902859AD7E00201527 /* EmptyStateView.swift in Sources */,
 				B25691942859C8D100201527 /* GSheetsService.swift in Sources */,
 				B256919E285A24C700201527 /* GSheetsServiceConfiguration.swift in Sources */,
 				B25691CC285B977400201527 /* DeleteFilesystemItemUseCase.swift in Sources */,
+				B25691E2285CBD0000201527 /* AuthorizationViewControllerDelegate.swift in Sources */,
+				B25691DD285CAF2700201527 /* AuthorizationView.swift in Sources */,
 				B2569187285911FA00201527 /* Container.swift in Sources */,
 				B256915E28576F9100201527 /* String+Extensions.swift in Sources */,
 				B25691CF285BACD700201527 /* DefaultDeleteFilesystemItemUseCase.swift in Sources */,
 				B25691982859C97800201527 /* GSheetResponseModel.swift in Sources */,
+				B25691DB285CAF1100201527 /* AuthorizationViewController.swift in Sources */,
 				B256914B2854E3DD00201527 /* Collection+Extensions.swift in Sources */,
 				B25691552855157100201527 /* ColumnFlowLayout.swift in Sources */,
 				B2569170285900BB00201527 /* FilesystemListViewDataSource.swift in Sources */,
@@ -736,6 +800,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B25691D5285CABDA00201527 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B25691D6285CABDA00201527 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B25691D5285CABDA00201527 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B256910C2854A65400201527 /* Project object */;
 }

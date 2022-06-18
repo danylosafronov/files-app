@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct Container {
+final class Container {
+    var authroizationState: AuthroizationState? = nil
+    
     func makeFilesystemNetworkDataSource() -> FilesystemNetworkDataSource {
         DefaultFilesystemNetworkDataSource(sheetId: Configuration.requiredString(byKey: "API_SHEET_ID"),
                                            service: makeGSheetService())
@@ -37,6 +39,6 @@ struct Container {
     }
     
     func makeGSheetService() -> GSheetsService {
-        return GSheetsService(configuration: .init(apiKey: Configuration.requiredString(byKey: "API_KEY")))
+        return GSheetsService(configuration: .init(authorizationToken: authroizationState?.token))
     }
 }
