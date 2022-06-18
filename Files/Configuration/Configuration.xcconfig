@@ -8,6 +8,6 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-API_SHEET_ID =
+API_SPREADSHEET_ID =
 API_CLIENT_ID =
 API_SCHEME =

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum GSheetErrors: Error {
+enum GSpreadsheetError: Error {
     case malformedUrl
     case invalidUrl
     case badServerResponse

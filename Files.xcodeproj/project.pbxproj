@@ -40,7 +40,7 @@
 		B256918B2859A6BA00201527 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256918A2859A6BA00201527 /* AppAppearance.swift */; };
 		B256918E2859AB9A00201527 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256918D2859AB9A00201527 /* LoadingView.swift */; };
 		B25691902859AD7E00201527 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256918F2859AD7E00201527 /* EmptyStateView.swift */; };
-		B25691942859C8D100201527 /* GSheetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691932859C8D100201527 /* GSheetsService.swift */; };
+		B25691942859C8D100201527 /* GSpreadsheetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691932859C8D100201527 /* GSpreadsheetService.swift */; };
 		B25691982859C97800201527 /* GSheetResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691972859C97800201527 /* GSheetResponseModel.swift */; };
 		B256919C285A1CEC00201527 /* GSheetsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256919B285A1CEC00201527 /* GSheetsError.swift */; };
 		B256919E285A24C700201527 /* GSheetsServiceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256919D285A24C700201527 /* GSheetsServiceConfiguration.swift */; };
@@ -94,7 +94,7 @@
 		B256918A2859A6BA00201527 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		B256918D2859AB9A00201527 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B256918F2859AD7E00201527 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
-		B25691932859C8D100201527 /* GSheetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSheetsService.swift; sourceTree = "<group>"; };
+		B25691932859C8D100201527 /* GSpreadsheetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSpreadsheetService.swift; sourceTree = "<group>"; };
 		B25691972859C97800201527 /* GSheetResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSheetResponseModel.swift; sourceTree = "<group>"; };
 		B256919B285A1CEC00201527 /* GSheetsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSheetsError.swift; sourceTree = "<group>"; };
 		B256919D285A24C700201527 /* GSheetsServiceConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSheetsServiceConfiguration.swift; sourceTree = "<group>"; };
@@ -396,7 +396,7 @@
 				B25691962859C92300201527 /* Models */,
 				B256919B285A1CEC00201527 /* GSheetsError.swift */,
 				B256919D285A24C700201527 /* GSheetsServiceConfiguration.swift */,
-				B25691932859C8D100201527 /* GSheetsService.swift */,
+				B25691932859C8D100201527 /* GSpreadsheetService.swift */,
 			);
 			path = GoogleSheets;
 			sourceTree = "<group>";
@@ -565,7 +565,7 @@
 				B256917F28590A4900201527 /* DefaultGetFilesystemItemsUseCase.swift in Sources */,
 				B25691E6285CC9B600201527 /* AuthorizationState.swift in Sources */,
 				B25691902859AD7E00201527 /* EmptyStateView.swift in Sources */,
-				B25691942859C8D100201527 /* GSheetsService.swift in Sources */,
+				B25691942859C8D100201527 /* GSpreadsheetService.swift in Sources */,
 				B256919E285A24C700201527 /* GSheetsServiceConfiguration.swift in Sources */,
 				B25691CC285B977400201527 /* DeleteFilesystemItemUseCase.swift in Sources */,
 				B25691E2285CBD0000201527 /* AuthorizationViewControllerDelegate.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GSheetServiceConfiguration {
+struct GSpreadsheetServiceConfiguration {
     let authorizationToken: String?
     let baseUrl: String = "https://sheets.googleapis.com"
     let apiVersion: String = "v4"

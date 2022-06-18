@@ -8,11 +8,11 @@
 import Foundation
 
 struct DefaultFilesystemNetworkDataSource: FilesystemNetworkDataSource {
-    let sheetId: String
-    let service: GSheetsService
+    let spreadsheetId: String
+    let service: GSpreadsheetService
     
     func items(forParent parentId: String?) async throws -> [FilesystemItem] {
-        try await service.fetch(fromSpreadsheet: sheetId)
+        try await service.fetch(fromSpreadsheet: spreadsheetId)
             .rows
             .enumerated()
             .compactMap { index, row in
@@ -39,10 +39,10 @@ struct DefaultFilesystemNetworkDataSource: FilesystemNetworkDataSource {
     }
     
     func insert(item: FilesystemItem) async throws {
-        try await service.insert([item.id, item.parentId ?? "", item.type.rawValue, item.name], at: item.index + 1, toSpreadsheet: sheetId)
+        try await service.insert([item.id, item.parentId ?? "", item.type.rawValue, item.name], at: item.index + 1, toSpreadsheet: spreadsheetId)
     }
     
     func delete(item: FilesystemItem) async throws {
-        try await service.delete(at: item.index + 1, fromSpreadsheet: sheetId)
+        try await service.delete(at: item.index + 1, fromSpreadsheet: spreadsheetId)
     }
 }

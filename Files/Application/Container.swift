@@ -11,8 +11,8 @@ final class Container {
     var authroizationState: AuthroizationState? = nil
     
     func makeFilesystemNetworkDataSource() -> FilesystemNetworkDataSource {
-        DefaultFilesystemNetworkDataSource(sheetId: Configuration.requiredString(byKey: "API_SHEET_ID"),
-                                           service: makeGSheetService())
+        DefaultFilesystemNetworkDataSource(spreadsheetId: Configuration.requiredString(byKey: "API_SPREADSHEET_ID"),
+                                           service: makeGSpreadsheetService())
     }
     
     func makeFilesystemRepository() -> FilesystemRepository {
@@ -38,7 +38,7 @@ final class Container {
                                 deleteFilesystemItemUseCase: makeDeleteFilesystemItemUseCase())
     }
     
-    func makeGSheetService() -> GSheetsService {
-        return GSheetsService(configuration: .init(authorizationToken: authroizationState?.token))
+    func makeGSpreadsheetService() -> GSpreadsheetService {
+        return GSpreadsheetService(configuration: .init(authorizationToken: authroizationState?.token))
     }
 }

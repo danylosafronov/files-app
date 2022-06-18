@@ -4,8 +4,8 @@
 <dict>
 	<key>API_CLIENT_ID</key>
 	<string>${API_CLIENT_ID}</string>
-	<key>API_SHEET_ID</key>
-	<string>${API_SHEET_ID}</string>
+	<key>API_SPREADSHEET_ID</key>
+	<string>${API_SPREADSHEET_ID}</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

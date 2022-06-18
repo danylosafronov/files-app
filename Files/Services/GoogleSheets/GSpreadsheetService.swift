@@ -1,5 +1,5 @@
 //
-//  GoogleSheets.swift
+//  GSpreadsheetService.swift
 //  Files
 //
 //  Created by Danylo Safronov on 15.06.2022.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct GSheetsService {
-    let configuration: GSheetServiceConfiguration
+struct GSpreadsheetService {
+    let configuration: GSpreadsheetServiceConfiguration
     
     func fetch(fromSpreadsheet spreadsheetId: String) async throws -> GSheetResponseModel {
         guard let authorizationToken = configuration.authorizationToken else {
-            throw GSheetErrors.unauthorized
+            throw GSpreadsheetError.unauthorized
         }
         
         let url = try makeSheetUrl("values", forSpreadsheet: spreadsheetId, range: ("A1", "Z1000"))
@@ -28,7 +28,7 @@ struct GSheetsService {
     
     func insert(_ row: [String], at index: Int, toSpreadsheet spreadsheetId: String) async throws {
         guard let authorizationToken = configuration.authorizationToken else {
-            throw GSheetErrors.unauthorized
+            throw GSpreadsheetError.unauthorized
         }
         
         let url = try makeSheetUrl("values", forSpreadsheet: spreadsheetId, range: ("A\(index)", "Z\(index)"), action: "append", parameters: ["valueInputOption": "RAW"])
@@ -44,7 +44,7 @@ struct GSheetsService {
     
     func delete(at index: Int, fromSpreadsheet spreadsheetId: String) async throws {
         guard let authorizationToken = configuration.authorizationToken else {
-            throw GSheetErrors.unauthorized
+            throw GSpreadsheetError.unauthorized
         }
         
         let url = try makeSheetUrl("values", forSpreadsheet: spreadsheetId, range: ("A\(index)", "Z\(index)"), action: "clear")
@@ -59,12 +59,12 @@ struct GSheetsService {
         try await withCheckedThrowingContinuation { continuation in
             let task = self.dataTask(with: request) { data, response, error in
                 guard let data = data, let response = response  else {
-                    let error = error ?? GSheetErrors.badServerResponse
+                    let error = error ?? GSpreadsheetError.badServerResponse
                     return continuation.resume(throwing: error)
                 }
                 
                 if let response = response as? HTTPURLResponse, !(200 ..< 300).contains(response.statusCode) {
-                    let error = GSheetErrors.badServerResponse
+                    let error = GSpreadsheetError.badServerResponse
                     return continuation.resume(throwing: error)
                 }
                 
@@ -89,7 +89,7 @@ struct GSheetsService {
         let urlComponents = try makeSheetUrlComponents(string: configuration.baseUrl, path: path, parameters: parameters)
         
         guard let url = urlComponents.url else {
-            throw GSheetErrors.invalidUrl
+            throw GSpreadsheetError.invalidUrl
         }
         
         return url
@@ -97,7 +97,7 @@ struct GSheetsService {
     
     private func makeSheetUrlComponents(string: String, path: [String], parameters: ([String: String])? = nil) throws -> URLComponents {
         guard var urlComponents = URLComponents(string: string) else {
-            throw GSheetErrors.malformedUrl
+            throw GSpreadsheetError.malformedUrl
         }
         
         urlComponents.path = "/\(path.joined(separator: "/"))"
