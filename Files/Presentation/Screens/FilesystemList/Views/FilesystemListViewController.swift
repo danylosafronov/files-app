@@ -88,8 +88,8 @@ final class FilesystemListViewController: UIViewController, FilesystemListViewDe
         navigationItem.rightBarButtonItems = [
             makeSignOutBarButtonItem(),
             makeChangeViewModeBarButtonItem(mode: defaultView.mode),
-//            makeCreateFolderBarButtonItem(),
-//            makeCreateFileBarButtonItem(),
+            makeCreateFolderBarButtonItem(),
+            makeCreateFileBarButtonItem(),
         ]
     }
     
@@ -200,7 +200,15 @@ final class FilesystemListViewController: UIViewController, FilesystemListViewDe
     }
     
     private func didTapAlertCreateItem(_ alert: UIAlertController, ofType type: AlertType, withName name: String) {
-        // todo
+        var itemType: FilesystemItemType
+        
+        switch type {
+        case .createFolder: itemType = .directory
+        case .createFile: itemType = .file
+        default: return
+        }
+        
+        viewModel.createItem(itemType, withName: name)
     }
     
     // MARK: - FilesystemListViewDelegate

@@ -15,7 +15,7 @@ struct DefaultFilesystemRepository: FilesystemRepository {
     }
     
     func insert(item: FilesystemItem) async throws {
-        // todo
+        try await networkDataSource.insert(item: item)
     }
     
     func delete(item: FilesystemItem) async throws {

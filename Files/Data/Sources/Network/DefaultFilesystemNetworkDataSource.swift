@@ -37,7 +37,7 @@ struct DefaultFilesystemNetworkDataSource: FilesystemNetworkDataSource {
     }
     
     func insert(item: FilesystemItem) async throws {
-        fatalError("Not implemented")
+        try await service.insert(sheetId: sheetId, rows: [[item.id, item.parentId ?? "", item.type.rawValue, item.name]])
     }
     
     func delete(item: FilesystemItem) async throws {
