@@ -18,7 +18,6 @@ struct GSpreadsheetService {
         let url = try makeSheetUrl("values", forSpreadsheet: spreadsheetId, range: ("A1", "Z1000"))
         var request = URLRequest(url: url)
         request.addValue("Bearer \(authorizationToken)", forHTTPHeaderField: "Authorization")
-        print(authorizationToken)
         
         let (responseData, _) = try await execute(with: request)
         let data = try JSONDecoder().decode(GSheetResponseModel.self, from: responseData)
