@@ -91,6 +91,9 @@ final class AuthorizationView: UIView {
     
     private func configureSignInWithGoogleButton() {
         contentStackView.addArrangedSubview(signInWithGoogleButton)
+        
+        signInWithGoogleButton.style = .wide
+        signInWithGoogleButton.colorScheme = .dark
         signInWithGoogleButton.addTarget(self, action: #selector(didTapSignInWithGoogle), for: .touchUpInside)
     }
     
