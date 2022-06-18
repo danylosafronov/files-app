@@ -19,8 +19,13 @@ final class FilesystemListViewModel {
     private var loadItemsTask: Task<Void, Error>? {
         willSet { cancelTask(loadItemsTask) }
     }
+    
     private var createItemTask: Task<Void, Error>? {
         willSet { cancelTask(createItemTask) }
+    }
+    
+    private var deleteItemTask: Task<Void, Error>? {
+        willSet { cancelTask(deleteItemTask) }
     }
     
     init(parent: FilesystemItem? = nil,
@@ -36,6 +41,7 @@ final class FilesystemListViewModel {
     deinit {
         cancelTask(loadItemsTask)
         cancelTask(createItemTask)
+        cancelTask(deleteItemTask)
     }
     
     // MARK: - Logic
@@ -47,6 +53,7 @@ final class FilesystemListViewModel {
     func stop() {
         loadItemsTask = nil
         createItemTask = nil
+        deleteItemTask = nil
     }
     
     func indexes(forItems items: [FilesystemListItemViewModel]) -> [IndexPath] {
@@ -117,11 +124,37 @@ final class FilesystemListViewModel {
         
         do {
             let item = FilesystemItem(id: UUID().uuidString,
+                                      index: items.count + 1,
                                       parentId: parent?.id,
                                       type: type,
                                       name: name)
             
             try await saveFilesystemItemUseCase.invoke(item: item)
+            
+            guard !Task.isCancelled else { return }
+            await loadItemsAsync(forParent: parent?.id)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func deleteItem(_ item: FilesystemItem) {
+        loading = true
+        
+        deleteItemTask = Task(priority: .background) { [weak self] in
+            guard let self = self else { return }
+            await self.deleteItemAsync(item)
+            
+            loading = false
+            deleteItemTask = nil
+        }
+    }
+    
+    private func deleteItemAsync(_ item: FilesystemItem) async {
+        guard !Task.isCancelled else { return }
+        
+        do {
+            try await deleteFilesystemItemUseCase.invoke(item: item)
             
             guard !Task.isCancelled else { return }
             await loadItemsAsync(forParent: parent?.id)

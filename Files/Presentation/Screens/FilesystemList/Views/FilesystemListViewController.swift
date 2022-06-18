@@ -71,7 +71,7 @@ final class FilesystemListViewController: UIViewController, FilesystemListViewDe
     
     // MARK: - Configurations
     
-    private func configure() {
+    private func configure() {        
         configureNavigationBar()
         configureNavigationBarItems()
     }
@@ -216,6 +216,11 @@ final class FilesystemListViewController: UIViewController, FilesystemListViewDe
     func didSelectItem(at index: IndexPath) {
         guard let viewModel = viewModel.item(at: index) else { return }
         delegate?.didSelectItem(viewModel.item)
+    }
+    
+    func didTapDeleteItem(at index: IndexPath) {
+        guard let viewModel = viewModel.item(at: index) else { return }
+        self.viewModel.deleteItem(viewModel.item)
     }
     
     // MARK: - FilesystemListViewDataSource

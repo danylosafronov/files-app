@@ -14,21 +14,23 @@ struct DefaultFilesystemNetworkDataSource: FilesystemNetworkDataSource {
     func items(forParent parentId: String?) async throws -> [FilesystemItem] {
         try await service.fetch(sheetId: sheetId)
             .rows
-            .map { row in
+            .enumerated()
+            .compactMap { index, row in
                 guard
                     let id = row.getOrNil(index: 0),
                     let parentId = row.getOrNil(index: 1),
                     let type = row.getOrNil(index: 2),
                     let name = row.getOrNil(index: 3)
                 else {
-                    throw DefaultFilesystemNetworkDataSourceError.invalidRowFormat
+                    return nil
                 }
                 
                 guard let type = FilesystemItemType(rawValue: type) else {
-                    throw DefaultFilesystemNetworkDataSourceError.invalidRowType
+                    return nil
                 }
                 
                 return FilesystemItem(id: id,
+                                      index: index,
                                       parentId: parentId.isEmpty ? nil : parentId,
                                       type: type,
                                       name: name)
@@ -41,13 +43,6 @@ struct DefaultFilesystemNetworkDataSource: FilesystemNetworkDataSource {
     }
     
     func delete(item: FilesystemItem) async throws {
-        fatalError("Not implemented")
-    }
-}
-
-extension DefaultFilesystemNetworkDataSource {
-    enum DefaultFilesystemNetworkDataSourceError: Error {
-        case invalidRowFormat
-        case invalidRowType
+        try await service.delete(sheetId: sheetId, index: item.index + 1)
     }
 }

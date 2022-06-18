@@ -9,6 +9,7 @@ import Foundation
 
 struct FilesystemItem: Identifiable {
     let id: String
+    let index: Int
     let parentId: String?
     let type: FilesystemItemType
     let name: String

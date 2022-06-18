@@ -149,10 +149,14 @@ final class FilesystemListView: UIView, UICollectionViewDataSource, UICollection
         if let viewModel = dataSource?.item(at: indexPath) {
             switch cell {
             case let cell as FilesystemCardItemCollectionViewCell:
-                cell.setup(withViewModel: viewModel)
+                cell.setup(withViewModel: viewModel) { [weak self] in
+                    self?.didTapDeleteItem(at: indexPath)
+                }
                 
             case let cell as FilesystemListItemCollectionViewCell:
-                cell.setup(withViewModel: viewModel)
+                cell.setup(withViewModel: viewModel) { [weak self] in
+                    self?.didTapDeleteItem(at: indexPath)
+                }
             
             default:
                 fatalError("Unsupported collection view cell")
@@ -200,6 +204,10 @@ final class FilesystemListView: UIView, UICollectionViewDataSource, UICollection
     
     private func didChangeDisplayMode(_ mode: DisplayMode) {
         configureCollectionViewLayout(byMode: mode)
+    }
+    
+    private func didTapDeleteItem(at index: IndexPath) {
+        delegate?.didTapDeleteItem(at: index)
     }
     
     // MARK: - Logic :

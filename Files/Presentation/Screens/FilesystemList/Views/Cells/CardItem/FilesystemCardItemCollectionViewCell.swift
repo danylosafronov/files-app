@@ -7,10 +7,14 @@
 
 import UIKit
 
-final class FilesystemCardItemCollectionViewCell: UICollectionViewCell {
+final class FilesystemCardItemCollectionViewCell: UICollectionViewCell, UIContextMenuInteractionDelegate {
     static let identifier = "FilesystemCardItemCollectionViewCell"
-    
+    typealias DeleteActionHandler = () -> Void
+
     private lazy var defaultContentView = FilesystemCardItemContentView()
+    private lazy var interaction = UIContextMenuInteraction(delegate: self)
+    
+    private var registeredDeleteActionHandler: DeleteActionHandler? = nil
 
     // MARK: - Overrides
     
@@ -23,11 +27,18 @@ final class FilesystemCardItemCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        defaultContentView.cleanup()
+        registeredDeleteActionHandler = nil
+    }
+    
     // MARK: - Configuration
     
     private func configure() {
-        backgroundView?.backgroundColor = .systemBackground
         configureContentView()
+        configureInteraction()
     }
     
     private func configureContentView() {
@@ -45,12 +56,35 @@ final class FilesystemCardItemCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate(constraints)
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        defaultContentView.cleanup()
+    private func configureInteraction() {
+        addInteraction(interaction)
     }
     
-    func setup(withViewModel viewModel: FilesystemListItemViewModel) {
+    // MARK: - Actions
+    
+    func setup(withViewModel viewModel: FilesystemListItemViewModel, deleteActionHandler: DeleteActionHandler? = nil) {
         defaultContentView.setup(withModel: viewModel.item)
+        registeredDeleteActionHandler = deleteActionHandler
+    }
+    
+    // MARK: - UIContextMenuInteractionDelegate
+    
+    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        
+        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { actions -> UIMenu? in
+            let action = UIAction(title: "Delete", image: UIImage(systemName: "trash.fill"), attributes: [.destructive]) { [weak self] action in
+                self?.didTapDeleteAction()
+            }
+            
+            return UIMenu(title: "", image: nil, identifier: nil, children:[action])
+        }
+        
+        return configuration
+    }
+    
+    // MARK: - Events
+    
+    private func didTapDeleteAction() {
+        registeredDeleteActionHandler?()
     }
 }

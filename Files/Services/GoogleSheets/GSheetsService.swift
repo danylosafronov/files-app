@@ -44,6 +44,19 @@ struct GSheetsService {
         let (_, _) = try await execute(with: request)
     }
     
+    func delete(sheetId: String, index: Int) async throws {
+        guard let authorizationToken = configuration.authorizationToken else {
+            throw GSheetErrors.unauthorized
+        }
+        
+        let url = try makeSheetUrl("values", forSheet: sheetId, range: ("\(index)", "\(index)"), action: "clear")
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("Bearer \(authorizationToken)", forHTTPHeaderField: "Authorization")
+        
+        let (_, _) = try await execute(with: request)
+    }
+    
     private func execute(with request: URLRequest) async throws -> (Data, URLResponse) {
         try await withCheckedThrowingContinuation { continuation in
             let task = self.dataTask(with: request) { data, response, error in

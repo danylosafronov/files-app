@@ -13,6 +13,7 @@ struct FakeFilesystemNetworkDataSource: FilesystemNetworkDataSource {
         return (0...100).map { index in
             FilesystemItem(
                 id: UUID().uuidString,
+                index: index,
                 parentId: parentId,
                 type: index % 3 == 0 ? .directory : .file,
                 name: "Item \(index)"

@@ -19,6 +19,6 @@ struct DefaultFilesystemRepository: FilesystemRepository {
     }
     
     func delete(item: FilesystemItem) async throws {
-        // todo
+        try await networkDataSource.delete(item: item)
     }
 }

@@ -9,8 +9,10 @@ import Foundation
 
 protocol FilesystemListViewDelegate: AnyObject {
     func didSelectItem(at index: IndexPath)
+    func didTapDeleteItem(at index: IndexPath)
 }
 
 extension FilesystemListViewDelegate {
     func didSelectItem(at index: IndexPath) { }
+    func didTapDeleteItem(at index: IndexPath) { }
 }
