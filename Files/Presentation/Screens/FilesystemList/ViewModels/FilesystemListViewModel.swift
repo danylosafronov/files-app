@@ -76,14 +76,14 @@ final class FilesystemListViewModel {
     }
     
     private func loadItems(forParent parentId: String?) {
-        loading = true
-        
         loadItemsTask = Task(priority: .background) { [weak self] in
             guard let self = self else { return }
-            await self.loadItemsAsync(forParent: parentId)
             
-            loading = false
-            loadItemsTask = nil
+            await self.setLoadingAsync(true)
+            await self.loadItemsAsync(forParent: parentId)
+            await self.setLoadingAsync(false)
+            
+            self.loadItemsTask = nil
         }
     }
     
@@ -101,21 +101,21 @@ final class FilesystemListViewModel {
             }
             
             guard !Task.isCancelled else { return }
-            self.items = viewModels
+            await setItemsAsync(viewModels)
         } catch {
             print(error)
         }
     }
     
     func createItem(_ type: FilesystemItemType, withName name: String) {
-        loading = true
-        
         createItemTask = Task(priority: .background) { [weak self] in
             guard let self = self else { return }
-            await self.createItemAsync(type, withName: name)
             
-            loading = false
-            createItemTask = nil
+            await self.setLoadingAsync(true)
+            await self.createItemAsync(type, withName: name)
+            await self.setLoadingAsync(false)
+            
+            self.createItemTask = nil
         }
     }
     
@@ -139,14 +139,14 @@ final class FilesystemListViewModel {
     }
     
     func deleteItem(_ item: FilesystemItem) {
-        loading = true
-        
         deleteItemTask = Task(priority: .background) { [weak self] in
             guard let self = self else { return }
+        
+            await self.setLoadingAsync(true)
             await self.deleteItemAsync(item)
+            await self.setLoadingAsync(false)
             
-            loading = false
-            deleteItemTask = nil
+            self.deleteItemTask = nil
         }
     }
     
@@ -166,6 +166,18 @@ final class FilesystemListViewModel {
     private func cancelTask<Success, Failure>(_ task: Task<Success, Failure>?) {
         if let task = task, !task.isCancelled {
             task.cancel()
+        }
+    }
+    
+    private func setLoadingAsync(_ state: Bool) async {
+        await MainActor.run { [weak self] in
+            self?.loading = state
+        }
+    }
+    
+    private func setItemsAsync(_ items: [FilesystemListItemViewModel]) async {
+        await MainActor.run { [weak self] in
+            self?.items = items
         }
     }
 }
