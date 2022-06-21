@@ -91,9 +91,10 @@ final class FilesystemListViewModel {
         guard !Task.isCancelled else { return }
         
         do {
-            let items = try await getFilesystemItemsUseCase.invoke(parentId: parentId)
-                .sorted { first, _ in first.type == .directory }
+            var items = try await getFilesystemItemsUseCase.invoke(parentId: parentId)
+            guard !Task.isCancelled else { return }
             
+            items = sortFilesystemItems(items: items)
             guard !Task.isCancelled else { return }
             
             let viewModels = items.map { item in
@@ -105,6 +106,20 @@ final class FilesystemListViewModel {
         } catch {
             print(error)
         }
+    }
+    
+    private func sortFilesystemItems(items: [FilesystemItem]) -> [FilesystemItem] {
+        var dirictories: [FilesystemItem] = []
+        var files: [FilesystemItem] = []
+        
+        items.forEach { item in
+            item.type == .directory ? dirictories.append(item) : files.append(item)
+        }
+        
+        dirictories = dirictories.sorted { $0.name.lowercased() < $1.name.lowercased() }
+        files = files.sorted { $0.name.lowercased() < $1.name.lowercased() }
+        
+        return dirictories + files
     }
     
     func createItem(_ type: FilesystemItemType, withName name: String) {
