@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class Coordinator: AuthorizationViewControllerDelegate, FilesystemListViewControllerDelegate {
+@MainActor final class Coordinator: AuthorizationViewControllerDelegate, FilesystemListViewControllerDelegate {
     let rootController: UINavigationController
     private let rootContainer: Container
     

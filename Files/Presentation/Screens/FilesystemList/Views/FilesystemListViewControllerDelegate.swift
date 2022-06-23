@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol FilesystemListViewControllerDelegate: AnyObject {
+@MainActor protocol FilesystemListViewControllerDelegate: AnyObject {
     func didSelectItem(_ item: FilesystemItem)
     func didTapSignOut()
 }

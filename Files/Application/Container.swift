@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class Container {
+@MainActor final class Container {
     var authroizationState: AuthroizationState? = nil
     
     func makeFilesystemNetworkDataSource() -> FilesystemNetworkDataSource {

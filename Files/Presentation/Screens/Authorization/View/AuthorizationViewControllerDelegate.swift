@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol AuthorizationViewControllerDelegate: AnyObject {
+@MainActor protocol AuthorizationViewControllerDelegate: AnyObject {
     func didTapSignInWithGoogle()
 }
 
