@@ -86,13 +86,10 @@ import Foundation
         guard !Task.isCancelled else { return }
         
         do {
-            var models = try await getFilesystemItemsUseCase.invoke(parentId: parentId)
-            
+            let filesystemItems = try await getFilesystemItemsUseCase.invoke(parentId: parentId)
+
             guard !Task.isCancelled else { return }
-            models = sortFilesystemItems(items: models)
-            
-            guard !Task.isCancelled else { return }
-            let viewModels = models.map { item in
+            let viewModels = filesystemItems.map { item in
                 FilesystemListItemViewModel(item: item)
             }
             
@@ -101,20 +98,6 @@ import Foundation
         } catch {
             print(error)
         }
-    }
-    
-    private func sortFilesystemItems(items: [FilesystemItem]) -> [FilesystemItem] {
-        var dirictories: [FilesystemItem] = []
-        var files: [FilesystemItem] = []
-        
-        items.forEach { item in
-            item.type == .directory ? dirictories.append(item) : files.append(item)
-        }
-        
-        dirictories = dirictories.sorted { $0.name.lowercased() < $1.name.lowercased() }
-        files = files.sorted { $0.name.lowercased() < $1.name.lowercased() }
-        
-        return dirictories + files
     }
     
     func createItem(_ type: FilesystemItemType, withName name: String) {

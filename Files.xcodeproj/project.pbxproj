@@ -56,6 +56,8 @@
 		B25691E2285CBD0000201527 /* AuthorizationViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691E1285CBD0000201527 /* AuthorizationViewControllerDelegate.swift */; };
 		B25691E6285CC9B600201527 /* AuthorizationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691E5285CC9B600201527 /* AuthorizationState.swift */; };
 		B25691E8285DDADB00201527 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691E7285DDADB00201527 /* CoordinatorDelegate.swift */; };
+		B25691EA286C892100201527 /* GetSortedFilesystemItemsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691E9286C892100201527 /* GetSortedFilesystemItemsUseCase.swift */; };
+		B25691EC286C895000201527 /* DefaultGetSortedFilesystemItemsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25691EB286C895000201527 /* DefaultGetSortedFilesystemItemsUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +113,8 @@
 		B25691E1285CBD0000201527 /* AuthorizationViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewControllerDelegate.swift; sourceTree = "<group>"; };
 		B25691E5285CC9B600201527 /* AuthorizationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationState.swift; sourceTree = "<group>"; };
 		B25691E7285DDADB00201527 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
+		B25691E9286C892100201527 /* GetSortedFilesystemItemsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSortedFilesystemItemsUseCase.swift; sourceTree = "<group>"; };
+		B25691EB286C895000201527 /* DefaultGetSortedFilesystemItemsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultGetSortedFilesystemItemsUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,6 +373,7 @@
 				B25691782859093800201527 /* GetFilesystemItemsUseCase.swift */,
 				B25691C7285B964200201527 /* SaveFilesystemItemUseCase.swift */,
 				B25691CB285B977400201527 /* DeleteFilesystemItemUseCase.swift */,
+				B25691E9286C892100201527 /* GetSortedFilesystemItemsUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -415,6 +420,7 @@
 				B256917E28590A4900201527 /* DefaultGetFilesystemItemsUseCase.swift */,
 				B25691C9285B971700201527 /* DefaultSaveFilesystemItemUseCase.swift */,
 				B25691CE285BACD700201527 /* DefaultDeleteFilesystemItemUseCase.swift */,
+				B25691EB286C895000201527 /* DefaultGetSortedFilesystemItemsUseCase.swift */,
 			);
 			path = Default;
 			sourceTree = "<group>";
@@ -568,11 +574,13 @@
 				B25691942859C8D100201527 /* GSpreadsheetService.swift in Sources */,
 				B256919E285A24C700201527 /* GSheetsServiceConfiguration.swift in Sources */,
 				B25691CC285B977400201527 /* DeleteFilesystemItemUseCase.swift in Sources */,
+				B25691EC286C895000201527 /* DefaultGetSortedFilesystemItemsUseCase.swift in Sources */,
 				B25691E2285CBD0000201527 /* AuthorizationViewControllerDelegate.swift in Sources */,
 				B25691DD285CAF2700201527 /* AuthorizationView.swift in Sources */,
 				B2569187285911FA00201527 /* Container.swift in Sources */,
 				B256915E28576F9100201527 /* String+Extensions.swift in Sources */,
 				B25691CF285BACD700201527 /* DefaultDeleteFilesystemItemUseCase.swift in Sources */,
+				B25691EA286C892100201527 /* GetSortedFilesystemItemsUseCase.swift in Sources */,
 				B25691982859C97800201527 /* GSheetResponseModel.swift in Sources */,
 				B25691DB285CAF1100201527 /* AuthorizationViewController.swift in Sources */,
 				B256914B2854E3DD00201527 /* Collection+Extensions.swift in Sources */,

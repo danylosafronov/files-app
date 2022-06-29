@@ -23,6 +23,10 @@ import Foundation
         DefaultGetFilesystemItemsUseCase(repository: makeFilesystemRepository())
     }
     
+    func makeGetSortedFilesystemItemsUseCase() -> GetSortedFilesystemItemsUseCase {
+        DefaultGetSortedFilesystemItemsUseCase(getFilesystemItemsUseCase: makeGetFilesystemItemsUseCase())
+    }
+    
     func makeSaveFilesystemItemUseCase() -> SaveFilesystemItemUseCase {
         DefaultSaveFilesystemItemUseCase(repository: makeFilesystemRepository())
     }
@@ -33,7 +37,7 @@ import Foundation
     
     func makeFilesystemListViewModel(forParent parent: FilesystemItem?) -> FilesystemListViewModel {
         FilesystemListViewModel(parent: parent,
-                                getFilesystemItemsUseCase: makeGetFilesystemItemsUseCase(),
+                                getFilesystemItemsUseCase: makeGetSortedFilesystemItemsUseCase(),
                                 saveFilesystemItemUseCase: makeSaveFilesystemItemUseCase(),
                                 deleteFilesystemItemUseCase: makeDeleteFilesystemItemUseCase())
     }
